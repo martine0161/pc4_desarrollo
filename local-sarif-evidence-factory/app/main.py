@@ -2,10 +2,8 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-# Code smell: variable global mutable
 calculation_history = []
 
-# Code smell: función muy larga, sin validación
 @app.route('/calculate', methods=['POST'])
 def calculate():
     data = request.json
@@ -13,7 +11,6 @@ def calculate():
     a = data['a']
     b = data['b']
     
-    # Code smell: demasiados if/elif anidados
     if op == 'add':
         result = a + b
     elif op == 'subtract':
@@ -21,7 +18,7 @@ def calculate():
     elif op == 'multiply':
         result = a * b
     elif op == 'divide':
-        result = a / b  # Code smell: sin manejo de división por cero
+        result = a / b
     else:
         result = None
     
@@ -34,9 +31,3 @@ def history():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
-```
-
-**app/requirements.txt:**
-```
-flask==2.3.0
-requests==2.31.0
