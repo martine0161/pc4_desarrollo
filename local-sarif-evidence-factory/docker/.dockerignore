@@ -1,0 +1,6 @@
+```
+evidence/
+docs/
+*.pyc
+__pycache__/
+.git/

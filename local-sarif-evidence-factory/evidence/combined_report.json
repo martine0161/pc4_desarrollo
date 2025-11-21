@@ -1,0 +1,641 @@
+{
+  "timestamp": "2025-11-21T15:49:27.074640",
+  "pipeline": "local-sarif-evidence-factory",
+  "summary": {
+    "sast_issues": 0,
+    "sca_vulnerabilities": 110,
+    "sbom_components": 0
+  },
+  "evidence": {
+    "sast": {
+      "errors": [
+        {
+          "filename": "../app\\main.py",
+          "reason": "syntax error while parsing AST from file"
+        }
+      ],
+      "generated_at": "2025-11-21T20:49:15Z",
+      "metrics": {
+        "../app\\main.py": {
+          "loc": 31,
+          "nosec": 0,
+          "skipped_tests": 0
+        },
+        "_totals": {
+          "CONFIDENCE.HIGH": 0,
+          "CONFIDENCE.LOW": 0,
+          "CONFIDENCE.MEDIUM": 0,
+          "CONFIDENCE.UNDEFINED": 0,
+          "SEVERITY.HIGH": 0,
+          "SEVERITY.LOW": 0,
+          "SEVERITY.MEDIUM": 0,
+          "SEVERITY.UNDEFINED": 0,
+          "loc": 31,
+          "nosec": 0,
+          "skipped_tests": 0
+        }
+      },
+      "results": []
+    },
+    "sca": {
+      "dependencies": [
+        {
+          "name": "arrow",
+          "version": "1.4.0",
+          "vulns": []
+        },
+        {
+          "name": "asttokens",
+          "version": "3.0.0",
+          "vulns": []
+        },
+        {
+          "name": "attrs",
+          "version": "25.4.0",
+          "vulns": []
+        },
+        {
+          "name": "bandit",
+          "version": "1.9.1",
+          "vulns": []
+        },
+        {
+          "name": "blinker",
+          "version": "1.9.0",
+          "vulns": []
+        },
+        {
+          "name": "boolean-py",
+          "version": "5.0",
+          "vulns": []
+        },
+        {
+          "name": "cachecontrol",
+          "version": "0.14.4",
+          "vulns": []
+        },
+        {
+          "name": "certifi",
+          "version": "2025.10.5",
+          "vulns": []
+        },
+        {
+          "name": "cfgv",
+          "version": "3.4.0",
+          "vulns": []
+        },
+        {
+          "name": "chardet",
+          "version": "5.2.0",
+          "vulns": []
+        },
+        {
+          "name": "charset-normalizer",
+          "version": "3.4.3",
+          "vulns": []
+        },
+        {
+          "name": "click",
+          "version": "8.2.1",
+          "vulns": []
+        },
+        {
+          "name": "colorama",
+          "version": "0.4.6",
+          "vulns": []
+        },
+        {
+          "name": "comm",
+          "version": "0.2.3",
+          "vulns": []
+        },
+        {
+          "name": "contourpy",
+          "version": "1.3.3",
+          "vulns": []
+        },
+        {
+          "name": "coverage",
+          "version": "7.3.2",
+          "vulns": []
+        },
+        {
+          "name": "cycler",
+          "version": "0.12.1",
+          "vulns": []
+        },
+        {
+          "name": "cyclonedx-bom",
+          "version": "7.2.1",
+          "vulns": []
+        },
+        {
+          "name": "cyclonedx-python-lib",
+          "version": "9.1.0",
+          "vulns": []
+        },
+        {
+          "name": "debugpy",
+          "version": "1.8.17",
+          "vulns": []
+        },
+        {
+          "name": "decorator",
+          "version": "5.2.1",
+          "vulns": []
+        },
+        {
+          "name": "defusedxml",
+          "version": "0.7.1",
+          "vulns": []
+        },
+        {
+          "name": "distlib",
+          "version": "0.4.0",
+          "vulns": []
+        },
+        {
+          "name": "executing",
+          "version": "2.2.1",
+          "vulns": []
+        },
+        {
+          "name": "factory-boy",
+          "version": "3.3.0",
+          "vulns": []
+        },
+        {
+          "name": "faker",
+          "version": "20.0.3",
+          "vulns": []
+        },
+        {
+          "name": "filelock",
+          "version": "3.20.0",
+          "vulns": []
+        },
+        {
+          "name": "flask",
+          "version": "2.3.0",
+          "vulns": [
+            {
+              "id": "PYSEC-2023-62",
+              "fix_versions": [
+                "2.2.5",
+                "2.3.2"
+              ],
+              "aliases": [
+                "CVE-2023-30861",
+                "GHSA-m2qf-hxjv-5gpq"
+              ],
+              "description": "Flask is a lightweight WSGI web application framework. When all of the following conditions are met, a response containing data intended for one client may be cached and subsequently sent by the proxy to other clients. If the proxy also caches `Set-Cookie` headers, it may send one client's `session` cookie to other clients. The severity depends on the application's use of the session and the proxy's behavior regarding cookies. The risk depends on all these conditions being met.  1. The application must be hosted behind a caching proxy that does not strip cookies or ignore responses with cookies. 2. The application sets `session.permanent = True` 3. The application does not access or modify the session at any point during a request. 4. `SESSION_REFRESH_EACH_REQUEST` enabled (the default). 5. The application does not set a `Cache-Control` header to indicate that a page is private or should not be cached.  This happens because vulnerable versions of Flask only set the `Vary: Cookie` header when the session is accessed or modified, not when it is refreshed (re-sent to update the expiration) without being accessed or modified. This issue has been fixed in versions 2.3.2 and 2.2.5."
+            }
+          ]
+        },
+        {
+          "name": "flask-sqlalchemy",
+          "version": "3.1.1",
+          "vulns": []
+        },
+        {
+          "name": "fonttools",
+          "version": "4.60.0",
+          "vulns": []
+        },
+        {
+          "name": "fqdn",
+          "version": "1.5.1",
+          "vulns": []
+        },
+        {
+          "name": "gateway",
+          "skip_reason": "Dependency not found on PyPI and could not be audited: gateway (0.1.0)"
+        },
+        {
+          "name": "greenlet",
+          "version": "3.2.4",
+          "vulns": []
+        },
+        {
+          "name": "identify",
+          "version": "2.6.15",
+          "vulns": []
+        },
+        {
+          "name": "idna",
+          "version": "3.10",
+          "vulns": []
+        },
+        {
+          "name": "iniconfig",
+          "version": "2.1.0",
+          "vulns": []
+        },
+        {
+          "name": "ipykernel",
+          "version": "6.30.1",
+          "vulns": []
+        },
+        {
+          "name": "ipython",
+          "version": "9.5.0",
+          "vulns": []
+        },
+        {
+          "name": "ipython-pygments-lexers",
+          "version": "1.1.1",
+          "vulns": []
+        },
+        {
+          "name": "isoduration",
+          "version": "20.11.0",
+          "vulns": []
+        },
+        {
+          "name": "itsdangerous",
+          "version": "2.2.0",
+          "vulns": []
+        },
+        {
+          "name": "jedi",
+          "version": "0.19.2",
+          "vulns": []
+        },
+        {
+          "name": "jinja2",
+          "version": "3.1.6",
+          "vulns": []
+        },
+        {
+          "name": "jsonpointer",
+          "version": "3.0.0",
+          "vulns": []
+        },
+        {
+          "name": "jsonschema",
+          "version": "4.25.1",
+          "vulns": []
+        },
+        {
+          "name": "jsonschema-specifications",
+          "version": "2025.9.1",
+          "vulns": []
+        },
+        {
+          "name": "jupyter-client",
+          "version": "8.6.3",
+          "vulns": []
+        },
+        {
+          "name": "jupyter-core",
+          "version": "5.8.1",
+          "vulns": []
+        },
+        {
+          "name": "kiwisolver",
+          "version": "1.4.9",
+          "vulns": []
+        },
+        {
+          "name": "license-expression",
+          "version": "30.4.4",
+          "vulns": []
+        },
+        {
+          "name": "lxml",
+          "version": "5.4.0",
+          "vulns": []
+        },
+        {
+          "name": "markdown-it-py",
+          "version": "4.0.0",
+          "vulns": []
+        },
+        {
+          "name": "markupsafe",
+          "version": "3.0.2",
+          "vulns": []
+        },
+        {
+          "name": "matplotlib",
+          "version": "3.10.6",
+          "vulns": []
+        },
+        {
+          "name": "matplotlib-inline",
+          "version": "0.1.7",
+          "vulns": []
+        },
+        {
+          "name": "mdurl",
+          "version": "0.1.2",
+          "vulns": []
+        },
+        {
+          "name": "msgpack",
+          "version": "1.1.2",
+          "vulns": []
+        },
+        {
+          "name": "nest-asyncio",
+          "version": "1.6.0",
+          "vulns": []
+        },
+        {
+          "name": "nodeenv",
+          "version": "1.9.1",
+          "vulns": []
+        },
+        {
+          "name": "numpy",
+          "version": "2.3.3",
+          "vulns": []
+        },
+        {
+          "name": "packageurl-python",
+          "version": "0.17.5",
+          "vulns": []
+        },
+        {
+          "name": "packaging",
+          "version": "25.0",
+          "vulns": []
+        },
+        {
+          "name": "pandas",
+          "version": "2.3.2",
+          "vulns": []
+        },
+        {
+          "name": "parso",
+          "version": "0.8.5",
+          "vulns": []
+        },
+        {
+          "name": "pillow",
+          "version": "11.3.0",
+          "vulns": []
+        },
+        {
+          "name": "pip",
+          "version": "25.2",
+          "vulns": [
+            {
+              "id": "GHSA-4xh5-x5gv-qwph",
+              "fix_versions": [
+                "25.3"
+              ],
+              "aliases": [
+                "CVE-2025-8869"
+              ],
+              "description": "### Summary  In the fallback extraction path for source distributions, `pip` used Python\u2019s `tarfile` module without verifying that symbolic/hard link targets resolve inside the intended extraction directory. A malicious sdist can include links that escape the target directory and overwrite arbitrary files on the invoking host during `pip install`.  ### Impact  Successful exploitation enables arbitrary file overwrite outside the build/extraction directory on the machine running `pip`. This can be leveraged to tamper with configuration or startup files and may lead to further code execution depending on the environment, but the direct, guaranteed impact is integrity compromise on the vulnerable system.  ### Conditions  The issue is triggered when installing an attacker-controlled sdist (e.g., from an index or URL) and the fallback extraction code path is used. No special privileges are required beyond running `pip install`; active user action is necessary.  ### Remediation  The [fix](https://github.com/pypa/pip/pull/13550) is available starting in pip `25.3`. Using a Python interpreter that implements the safe-extraction behavior described by **PEP 706** provides additional defense in depth for other `tarfile` issues but is not a substitute for upgrading pip for this specific flaw."
+            }
+          ]
+        },
+        {
+          "name": "pip-api",
+          "version": "0.0.34",
+          "vulns": []
+        },
+        {
+          "name": "pip-audit",
+          "version": "2.9.0",
+          "vulns": []
+        },
+        {
+          "name": "pip-requirements-parser",
+          "version": "32.0.1",
+          "vulns": []
+        },
+        {
+          "name": "platformdirs",
+          "version": "4.4.0",
+          "vulns": []
+        },
+        {
+          "name": "pluggy",
+          "version": "1.6.0",
+          "vulns": []
+        },
+        {
+          "name": "pre-commit",
+          "version": "4.3.0",
+          "vulns": []
+        },
+        {
+          "name": "prompt-toolkit",
+          "version": "3.0.52",
+          "vulns": []
+        },
+        {
+          "name": "psutil",
+          "version": "7.1.0",
+          "vulns": []
+        },
+        {
+          "name": "pure-eval",
+          "version": "0.2.3",
+          "vulns": []
+        },
+        {
+          "name": "py-serializable",
+          "version": "2.1.0",
+          "vulns": []
+        },
+        {
+          "name": "pygments",
+          "version": "2.19.2",
+          "vulns": []
+        },
+        {
+          "name": "pyparsing",
+          "version": "3.2.5",
+          "vulns": []
+        },
+        {
+          "name": "pytest",
+          "version": "7.4.3",
+          "vulns": []
+        },
+        {
+          "name": "pytest-cov",
+          "version": "4.1.0",
+          "vulns": []
+        },
+        {
+          "name": "pytest-mock",
+          "version": "3.12.0",
+          "vulns": []
+        },
+        {
+          "name": "python-dateutil",
+          "version": "2.9.0.post0",
+          "vulns": []
+        },
+        {
+          "name": "python-dotenv",
+          "version": "1.0.0",
+          "vulns": []
+        },
+        {
+          "name": "pytz",
+          "version": "2025.2",
+          "vulns": []
+        },
+        {
+          "name": "pywin32",
+          "version": "311",
+          "vulns": []
+        },
+        {
+          "name": "pyyaml",
+          "version": "6.0.3",
+          "vulns": []
+        },
+        {
+          "name": "pyzmq",
+          "version": "27.1.0",
+          "vulns": []
+        },
+        {
+          "name": "referencing",
+          "version": "0.37.0",
+          "vulns": []
+        },
+        {
+          "name": "requests",
+          "version": "2.31.0",
+          "vulns": [
+            {
+              "id": "GHSA-9wx4-h78v-vm56",
+              "fix_versions": [
+                "2.32.0"
+              ],
+              "aliases": [
+                "CVE-2024-35195"
+              ],
+              "description": "When making requests through a Requests `Session`, if the first request is made with `verify=False` to disable cert verification, all subsequent requests to the same origin will continue to ignore cert verification regardless of changes to the value of `verify`. This behavior will continue for the lifecycle of the connection in the connection pool.  ### Remediation Any of these options can be used to remediate the current issue, we highly recommend upgrading as the preferred mitigation.  * Upgrade to `requests>=2.32.0`. * For `requests<2.32.0`, avoid setting `verify=False` for the first request to a host while using a Requests Session. * For `requests<2.32.0`, call `close()` on `Session` objects to clear existing connections if `verify=False` is used.  ### Related Links * https://github.com/psf/requests/pull/6655"
+            },
+            {
+              "id": "GHSA-9hjg-9r4m-mvj7",
+              "fix_versions": [
+                "2.32.4"
+              ],
+              "aliases": [
+                "CVE-2024-47081"
+              ],
+              "description": "### Impact  Due to a URL parsing issue, Requests releases prior to 2.32.4 may leak .netrc credentials to third parties for specific maliciously-crafted URLs.  ### Workarounds For older versions of Requests, use of the .netrc file can be disabled with `trust_env=False` on your Requests Session ([docs](https://requests.readthedocs.io/en/latest/api/#requests.Session.trust_env)).  ### References https://github.com/psf/requests/pull/6965 https://seclists.org/fulldisclosure/2025/Jun/2"
+            }
+          ]
+        },
+        {
+          "name": "rfc3339-validator",
+          "version": "0.1.4",
+          "vulns": []
+        },
+        {
+          "name": "rfc3987",
+          "version": "1.3.8",
+          "vulns": []
+        },
+        {
+          "name": "rich",
+          "version": "14.2.0",
+          "vulns": []
+        },
+        {
+          "name": "rpds-py",
+          "version": "0.28.0",
+          "vulns": []
+        },
+        {
+          "name": "scipy",
+          "version": "1.16.2",
+          "vulns": []
+        },
+        {
+          "name": "six",
+          "version": "1.17.0",
+          "vulns": []
+        },
+        {
+          "name": "sortedcontainers",
+          "version": "2.4.0",
+          "vulns": []
+        },
+        {
+          "name": "sqlalchemy",
+          "version": "2.0.43",
+          "vulns": []
+        },
+        {
+          "name": "stack-data",
+          "version": "0.6.3",
+          "vulns": []
+        },
+        {
+          "name": "stevedore",
+          "version": "5.6.0",
+          "vulns": []
+        },
+        {
+          "name": "toml",
+          "version": "0.10.2",
+          "vulns": []
+        },
+        {
+          "name": "tornado",
+          "version": "6.5.2",
+          "vulns": []
+        },
+        {
+          "name": "traitlets",
+          "version": "5.14.3",
+          "vulns": []
+        },
+        {
+          "name": "typing-extensions",
+          "version": "4.15.0",
+          "vulns": []
+        },
+        {
+          "name": "tzdata",
+          "version": "2025.2",
+          "vulns": []
+        },
+        {
+          "name": "uri-template",
+          "version": "1.3.0",
+          "vulns": []
+        },
+        {
+          "name": "urllib3",
+          "version": "2.5.0",
+          "vulns": []
+        },
+        {
+          "name": "virtualenv",
+          "version": "20.35.4",
+          "vulns": []
+        },
+        {
+          "name": "wcwidth",
+          "version": "0.2.14",
+          "vulns": []
+        },
+        {
+          "name": "webcolors",
+          "version": "25.10.0",
+          "vulns": []
+        },
+        {
+          "name": "werkzeug",
+          "version": "3.1.3",
+          "vulns": []
+        }
+      ],
+      "fixes": []
+    },
+    "sbom": {}
+  }
+}

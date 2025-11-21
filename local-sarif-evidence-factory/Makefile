@@ -8,7 +8,7 @@ run-local:
 	python app/main.py
 
 docker-build:
-	docker build -f docker/Dockerfile -t local-sarif-factory .
+	docker build -t local-sarif-factory -f docker/Dockerfile .
 
 docker-run:
 	docker run -p 5000:5000 local-sarif-factory
