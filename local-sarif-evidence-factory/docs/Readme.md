@@ -1,10 +1,3 @@
-Tienes razón, me pasé de largo. Aquí algo más real:
-
----
-
-# README.md
-
-```markdown
 # Proyecto 11 - Local SARIF & Evidence Factory
 
 Pipeline local de análisis de seguridad para código Python.
@@ -17,7 +10,6 @@ Pipeline local de análisis de seguridad para código Python.
 - Fusiona todo en un reporte JSON
 
 ## Estructura
-
 ```
 local-sarif-evidence-factory/
 ├── app/              # API Flask de ejemplo
@@ -29,7 +21,6 @@ local-sarif-evidence-factory/
 ```
 
 ## Uso
-
 ```bash
 # Instalar
 make setup
@@ -58,7 +49,6 @@ El pipeline encontró **4 CVEs** en las dependencias:
 Total: 110 dependencias analizadas.
 
 ## Comandos
-
 ```bash
 make setup        # Instalar todo
 make scan         # Ejecutar análisis

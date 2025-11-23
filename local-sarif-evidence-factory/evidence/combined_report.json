@@ -1,41 +1,65 @@
 {
-  "timestamp": "2025-11-21T15:49:27.074640",
+  "timestamp": "2025-11-22T20:56:12.021732",
   "pipeline": "local-sarif-evidence-factory",
   "summary": {
-    "sast_issues": 0,
+    "sast_issues": 1,
     "sca_vulnerabilities": 110,
-    "sbom_components": 0
+    "sbom_components": 2
   },
   "evidence": {
     "sast": {
-      "errors": [
-        {
-          "filename": "../app\\main.py",
-          "reason": "syntax error while parsing AST from file"
-        }
-      ],
-      "generated_at": "2025-11-21T20:49:15Z",
+      "errors": [],
+      "generated_at": "2025-11-23T01:56:08Z",
       "metrics": {
         "../app\\main.py": {
-          "loc": 31,
+          "CONFIDENCE.HIGH": 0,
+          "CONFIDENCE.LOW": 0,
+          "CONFIDENCE.MEDIUM": 1,
+          "CONFIDENCE.UNDEFINED": 0,
+          "SEVERITY.HIGH": 0,
+          "SEVERITY.LOW": 0,
+          "SEVERITY.MEDIUM": 1,
+          "SEVERITY.UNDEFINED": 0,
+          "loc": 26,
           "nosec": 0,
           "skipped_tests": 0
         },
         "_totals": {
           "CONFIDENCE.HIGH": 0,
           "CONFIDENCE.LOW": 0,
-          "CONFIDENCE.MEDIUM": 0,
+          "CONFIDENCE.MEDIUM": 1,
           "CONFIDENCE.UNDEFINED": 0,
           "SEVERITY.HIGH": 0,
           "SEVERITY.LOW": 0,
-          "SEVERITY.MEDIUM": 0,
+          "SEVERITY.MEDIUM": 1,
           "SEVERITY.UNDEFINED": 0,
-          "loc": 31,
+          "loc": 26,
           "nosec": 0,
           "skipped_tests": 0
         }
       },
-      "results": []
+      "results": [
+        {
+          "code": "32 if __name__ == '__main__':\n33     app.run(host='0.0.0.0', port=5000)\n",
+          "col_offset": 17,
+          "end_col_offset": 26,
+          "filename": "../app\\main.py",
+          "issue_confidence": "MEDIUM",
+          "issue_cwe": {
+            "id": 605,
+            "link": "https://cwe.mitre.org/data/definitions/605.html"
+          },
+          "issue_severity": "MEDIUM",
+          "issue_text": "Possible binding to all interfaces.",
+          "line_number": 33,
+          "line_range": [
+            33
+          ],
+          "more_info": "https://bandit.readthedocs.io/en/1.9.1/plugins/b104_hardcoded_bind_all_interfaces.html",
+          "test_id": "B104",
+          "test_name": "hardcoded_bind_all_interfaces"
+        }
+      ]
     },
     "sca": {
       "dependencies": [
@@ -636,6 +660,157 @@
       ],
       "fixes": []
     },
-    "sbom": {}
+    "sbom": {
+      "components": [
+        {
+          "bom-ref": "requirements-L1",
+          "description": "requirements line 1: flask==2.3.0",
+          "externalReferences": [
+            {
+              "comment": "implicit dist url",
+              "type": "distribution",
+              "url": "https://pypi.org/simple/flask/"
+            }
+          ],
+          "name": "flask",
+          "purl": "pkg:pypi/flask@2.3.0",
+          "type": "library",
+          "version": "2.3.0"
+        },
+        {
+          "bom-ref": "requirements-L2",
+          "description": "requirements line 2: requests==2.31.0",
+          "externalReferences": [
+            {
+              "comment": "implicit dist url",
+              "type": "distribution",
+              "url": "https://pypi.org/simple/requests/"
+            }
+          ],
+          "name": "requests",
+          "purl": "pkg:pypi/requests@2.31.0",
+          "type": "library",
+          "version": "2.31.0"
+        }
+      ],
+      "dependencies": [
+        {
+          "ref": "requirements-L1"
+        },
+        {
+          "ref": "requirements-L2"
+        }
+      ],
+      "metadata": {
+        "timestamp": "2025-11-23T01:56:10.986810+00:00",
+        "tools": {
+          "components": [
+            {
+              "description": "CycloneDX Software Bill of Materials (SBOM) generator for Python projects and environments",
+              "externalReferences": [
+                {
+                  "type": "build-system",
+                  "url": "https://github.com/CycloneDX/cyclonedx-python/actions"
+                },
+                {
+                  "type": "distribution",
+                  "url": "https://pypi.org/project/cyclonedx-bom/"
+                },
+                {
+                  "type": "documentation",
+                  "url": "https://cyclonedx-bom-tool.readthedocs.io/"
+                },
+                {
+                  "type": "issue-tracker",
+                  "url": "https://github.com/CycloneDX/cyclonedx-python/issues"
+                },
+                {
+                  "type": "license",
+                  "url": "https://github.com/CycloneDX/cyclonedx-python/blob/main/LICENSE"
+                },
+                {
+                  "type": "release-notes",
+                  "url": "https://github.com/CycloneDX/cyclonedx-python/blob/main/CHANGELOG.md"
+                },
+                {
+                  "type": "vcs",
+                  "url": "https://github.com/CycloneDX/cyclonedx-python/"
+                },
+                {
+                  "type": "website",
+                  "url": "https://github.com/CycloneDX/cyclonedx-python/#readme"
+                }
+              ],
+              "group": "CycloneDX",
+              "licenses": [
+                {
+                  "license": {
+                    "acknowledgement": "declared",
+                    "id": "Apache-2.0"
+                  }
+                }
+              ],
+              "name": "cyclonedx-py",
+              "type": "application",
+              "version": "7.2.1"
+            },
+            {
+              "description": "Python library for CycloneDX",
+              "externalReferences": [
+                {
+                  "type": "build-system",
+                  "url": "https://github.com/CycloneDX/cyclonedx-python-lib/actions"
+                },
+                {
+                  "type": "distribution",
+                  "url": "https://pypi.org/project/cyclonedx-python-lib/"
+                },
+                {
+                  "type": "documentation",
+                  "url": "https://cyclonedx-python-library.readthedocs.io/"
+                },
+                {
+                  "type": "issue-tracker",
+                  "url": "https://github.com/CycloneDX/cyclonedx-python-lib/issues"
+                },
+                {
+                  "type": "license",
+                  "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/LICENSE"
+                },
+                {
+                  "type": "release-notes",
+                  "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/CHANGELOG.md"
+                },
+                {
+                  "type": "vcs",
+                  "url": "https://github.com/CycloneDX/cyclonedx-python-lib"
+                },
+                {
+                  "type": "website",
+                  "url": "https://github.com/CycloneDX/cyclonedx-python-lib/#readme"
+                }
+              ],
+              "group": "CycloneDX",
+              "licenses": [
+                {
+                  "license": {
+                    "acknowledgement": "declared",
+                    "id": "Apache-2.0"
+                  }
+                }
+              ],
+              "name": "cyclonedx-python-lib",
+              "type": "library",
+              "version": "9.1.0"
+            }
+          ]
+        }
+      },
+      "serialNumber": "urn:uuid:4a065a09-7991-45b4-b3fe-8e803de865c7",
+      "version": 1,
+      "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+      "bomFormat": "CycloneDX",
+      "specVersion": "1.6"
+    }
   }
 }
